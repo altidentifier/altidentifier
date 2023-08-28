@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #e74c3c !important;">
+    <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108451027-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-108451027-2');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bulma.min.css">
+    <script src="../js/bundle.min.js" crossorigin="anonymous"></script>
+    <title>404: Page not Found</title>
+</head>
+<body style="background-color: #e74c3c !important;">
+<div style="display: none; border-radius: 0; margin-bottom: 0;" id="good_news" class="notification is-info has-text-centered">
+    <span id="good_news_text"></span>
+    <a id="delete_good_news" class="delete is-large"></a>
+</div>
+<div style="display: none; border-radius: 0; margin-bottom: 0;" id="bad_news" class="notification is-danger has-text-centered">
+    <span id="bad_news_text"></span>
+</div>
+<script>
+const XHR = new XMLHttpRequest();
+XHR.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 200) {
+        const result = JSON.parse(this.responseText);
+        if (result.good_news === null || result.good_news === undefined || result.good_news === '' || (localStorage.getItem('good_news') !== null &&Number(localStorage.getItem('good_news')) === result.good_news_counter)) {
+            document.getElementById('good_news').style.display = 'none';
+        }
+        else {
+            document.getElementById('good_news').style.display = null;
+            document.getElementById('good_news_text').innerHTML = result.good_news;
+            document.getElementById('delete_good_news').onclick = function () {
+                document.getElementById('good_news').style.display = 'none';
+                localStorage.setItem('good_news', result.good_news_counter);
+            }
+        }
+        if (result.bad_news === null || result.bad_news === undefined || result.bad_news === '') {
+            document.getElementById('bad_news').style.display = 'none';
+        }
+        else {
+            document.getElementById('bad_news').style.display = null;
+            document.getElementById('bad_news_text').innerHTML = result.bad_news;
+        }
+    }
+
+};
+
+XHR.open('GET', "/api/news", true);
+XHR.send();
+</script>
+<nav class="navbar" style="background-color: #e74c3c !important;" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://altdentifier.com?lang=en">
+            <img src="../images/cop.png">
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="/invite?ref=web">Invite</a>
+<a class="navbar-item" href="/dashboard?lang=en">Dashboard</a>
+<a class="navbar-item" href="/blog?lang=en">Blog</a>
+<a class="navbar-item" href="/faq?lang=en">FAQ</a>
+<a class="navbar-item" href="/commands?lang=en">Commands</a>
+<a class="navbar-item" href="/status?lang=en">Status</a>
+<a class="navbar-item" href="/premium?lang=en">Premium</a>
+<a class="navbar-item" href="/about?lang=en">About</a>
+        </div>
+        <div class="navbar-end">
+            <a style="font-weight: bold" class="navbar-item button is-info" href="/support">Get Support</a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    🇬🇧 English
+                </a>
+                <div class="navbar-dropdown">
+                
+                    <a class="navbar-item" href="/static/UniSansHeavyCaps.woff2?lang=de">🇩🇪 Deutsch</a>
+                
+                    <a class="navbar-item" href="/static/UniSansHeavyCaps.woff2?lang=es">🇪🇸 Español</a>
+                
+                    <a class="navbar-item" href="/static/UniSansHeavyCaps.woff2?lang=nl">🇳🇱 Nederlands</a>
+                
+                    <a class="navbar-item" href="/static/UniSansHeavyCaps.woff2?lang=pl">🇵🇱 Polski</a>
+                
+                    <a class="navbar-item" href="/static/UniSansHeavyCaps.woff2?lang=pt-br">🇧🇷 Português (BR)</a>
+                
+                    <a class="navbar-item" href="/static/UniSansHeavyCaps.woff2?lang=it">🇮🇹 Italiano</a>
+                
+                    <a class="navbar-item" href="/static/UniSansHeavyCaps.woff2?lang=tr">🇹🇷 Türkçe</a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<section style="background-color: #e74c3c !important;" class="section">
+    <div class="container">
+        <h1 class="title">Page not Found</h1>
+        <p class="text">We could not find the page you were looking for</p>
+        <hr class="line">
+        <center><a class="button" href="https://altdentifier.com?lang=en">Go back</a></center>
+    </div>
+</section>
+</body>
+<style id="style"></style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
+
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});
+</script>
+<script>
+let theme = localStorage.getItem('theme');
+const style = document.getElementById('style');
+const themeSwitch = document.getElementById('themeSwitch');
+    if (!theme) {
+        localStorage.setItem('theme', 'light');
+        style.innerHTML = '';
+        theme = 'light';
+        themeSwitch.innerText = 'Dark Theme';
+    }
+    if (theme === 'light') {
+        style.innerHTML = '';
+        theme = 'light';
+        themeSwitch.innerText = 'Dark Theme';
+    }
+    if (theme === 'dark') {
+        style.innerHTML = 'body, html, nav, footer {\n' +
+                '    background-color: #1c1c1c !important;}\n' +
+                'section { background-color: transparent;}';
+        theme = 'dark';
+        themeSwitch.innerText = 'Light Theme';
+    }
+
+    function changeTheme() {
+        console.log(theme);
+        if (!theme) {
+        localStorage.setItem('theme', 'dark');
+        style.innerHTML = 'body, html, nav, section, footer {\n' +
+            '    background-color: #1c1c1c !important;\n' +
+            '}';
+        theme = 'dark';
+        themeSwitch.innerText = 'Light Theme';
+        }
+        else if (theme === 'light') {
+            localStorage.setItem('theme', 'dark');
+            style.innerHTML = 'body, html, nav, footer {\n' +
+                '    background-color: #1c1c1c !important;}\n' +
+                'section { background-color: transparent;}';
+            theme = 'dark';
+            themeSwitch.innerText = 'Light Theme';
+        }
+        else if (theme === 'dark') {
+            localStorage.setItem('theme', 'light');
+            style.innerHTML = '';
+            theme = 'light';
+            themeSwitch.innerText = 'Dark Theme';
+        }
+    }
+</script>
+</html>

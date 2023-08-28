@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html style="background-color: #7289DA" lang="en">
+   <head>
+      <link rel="icon" href="images/icon.png">
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/style2.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="AltDentifier">
+      <meta property="og:image" content="images/cop.png">
+      <meta property="og:description" content="The best Discord security and checkpoint bot! Used in over 136251 servers!">
+      <meta property="description" content="The best Discord security and checkpoint bot! Used in over 136251 servers!">
+      <meta name="theme-color" content="#7289DA">
+      <link rel="stylesheet" href="css/bulma.min.css">
+      <title>AltDentifier - Discord Verification Bot</title>
+   </head>
+   <body>
+      <div style="display: none; border-radius: 0; margin-bottom: 0;" id="good_news" class="notification is-info has-text-centered">
+         <span id="good_news_text"></span>
+         <a id="delete_good_news" class="delete is-large"></a>
+      </div>
+      <div style="display: none; border-radius: 0; margin-bottom: 0;" id="bad_news" class="notification is-danger has-text-centered">
+         <span id="bad_news_text"></span>
+      </div>
+      
+      <nav class="navbar" style="background-color: #7289DA" role="navigation" aria-label="main navigation">
+         <div class="navbar-brand">
+            <a class="navbar-item" href="../index.html">
+            <img src="images/cop.png">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            </a>
+         </div>
+         <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+               <a class="navbar-item" href="/faq">FAQ</a>
+               <a class="navbar-item" href="/commands">Commands</a>
+               <a class="navbar-item" href="/status">Status</a>
+               <a class="navbar-item" href="/about">About</a>
+            </div>
+            <div style="align-items: center;" class="navbar-end">
+               <a style="font-weight: bold" class="navbar-item button is-info" href="https://discord.com/invite/k3Ggcwg" target="_blank">Get Support</a>
+               <a id="themeSwitch" onclick="changeTheme();" class="navbar-item ">Dark Theme</a>
+               <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                  🇬🇧 English
+                  </a>
+                  <div class="navbar-dropdown">
+                     <a class="navbar-item">🇩🇪 Deutsch</a>
+                     <a class="navbar-item">🇪🇸 Español</a>
+                     <a class="navbar-item">🇳🇱 Nederlands</a>
+                     <a class="navbar-item">🇵🇱 Polski</a>
+                     <a class="navbar-item">🇧🇷 Português (BR)</a>
+                     <a class="navbar-item">🇮🇹 Italiano</a>
+                     <a class="navbar-item">🇹🇷 Türkçe</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <section class="hero is-medium" style="background-color: transparent;">
+         <div class="hero-body">
+            <div class="container">
+               <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                  <div>
+                     <h1 style="font-size: 2.7em; word-wrap: break-word;" class="title">AltDentifier</h1>
+                     <h2 style="font-size: 36px; color: #d0e4f8 !important;" class="subtitle">The best Discord security and checkpoint bot!</h2>
+                     <h2 class="subtitle" style="margin-top: -1.25rem; color: #d0e4f8 !important;">Trusted by <b>136,744</b> servers and <b>47,319,761</b> users!</h2>
+                     <div class="columns">
+                        <a href="/commands" class="column is-narrow home-button">
+                        Commands
+                        </a>
+                        <a href="/faq" class="column is-narrow home-button">
+                        FAQ
+                        </a>
+                        <a href="/status" class="column is-narrow home-button">
+                        Status 
+                        </a>
+                     </div>
+                  </div>
+                  <div class="container" style=" width: 630px; margin-left: .5rem; margin-top: 1rem; ">
+                     <video style="width: 100%; height: auto; box-shadow: 5px 5px 5px -3px rgba(0, 0, 0, 0.5);" autoplay loop src="media/intro2.mp4" alt></video>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="section" style="background-color: #2d3436 !important;">
+         <h1 class="feature-title" style="text-align: center;  color: #eeeeee;">Our Features</h1>
+         <div class="columns is-centered">
+            <div class="column is-one-third">
+               <div class style=" margin-bottom: 1.25rem;">
+                  <h1 style="text-align: center; margin-top: 2em; color: #eeeeee;" class="feature-title">Powerful new user verification system</h1>
+                  <p style="text-align: center; margin-top: 2rem; color: #eeeeee;">New users will receive a DM to verify quickly with our easy to user verification system supporting Steam, Reddit, Twitter, YouTube, Xbox and even Google Captcha!<br>Our checkpoint system will deter bots and stop alts, while letting legitimate users join your server!</p>
+               </div>
+               <div class style=" margin-bottom: 1.25rem;">
+                  <h1 style="text-align: center; margin-top: 2em; color: #eeeeee;" class="feature-title">Detailed Verification Information</h1>
+                  <p style="text-align: center; margin-top: 2rem; color: #eeeeee;">AltDentifier lets you know exactly who is joining, so you can rest easy knowing users are who they claim they are. AltDentifier will even alert you if users are running a VPN!</p>
+               </div>
+               <div class style=" margin-bottom: 1.25rem;">
+                  <h1 style="text-align: center; margin-top: 2em; color: #eeeeee;" class="feature-title">Easy to setup</h1>
+                  <p style="text-align: center; margin-top: 2rem; color: #eeeeee;">Our powerful web panel makes it easy to invite, setup and configure the bot. Our setup is easy to understand and only takes a minute to complete!</p>
+               </div>
+            </div>
+            <div class="column is-one-third">
+               <div class style=" margin-bottom: 1.25rem;">
+                  <h1 style="text-align: center; margin-top: 2em; color: #eeeeee;" class="feature-title">Automatic Anti-Raid</h1>
+                  <p style="text-align: center; margin-top: 2rem; color: #eeeeee;">Combine the best of anti-raid and verification bots with our automatic anti-raid. Automated accounts will not pass our verification site, while letting new members in and enjoy your server!</p>
+               </div>
+               <div class style=" margin-bottom: 1.25rem;">
+                  <h1 style="text-align: center; margin-top: 2em; color: #eeeeee;" class="feature-title">Multi-Language</h1>
+                  <p style="text-align: center; margin-top: 2rem; color: #eeeeee;">¿Hablas español? So do we. Our bot and website are available in English, Dutch, French, German and Spanish, so users know what they have to do with a bot that speaks their language!</p>
+               </div>
+               <div class style=" margin-bottom: 1.25rem;">
+                  <h1 style="text-align: center; margin-top: 2em; color: #eeeeee;" class="feature-title">Clean Logging</h1>
+                  <p style="text-align: center; margin-top: 2rem; color: #eeeeee;">Rest easy knowing all events in your server are being logged. Track message edits, deletions, leaves, bans and more!</p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer style="background-color: #7289DA" class="footer">
+         <div class="content has-text-centered">
+            <p class="text">AltDentifier is not endorsed or created by Discord<br>
+               © <a href="https://tellter.com">Tellter 2022</a> - 2023<br>
+               Discord: <a href="https://discord.com/invite/k3Ggcwg" target="_blank">AltDentifier Support</a><br>
+               E-Mail: <a style="color: white; border-bottom: 1px solid white" href="/cdn-cgi/l/email-protection#086b67667c696b7c4869647c6c6d667c616e616d7a266b6765"><span class="__cf_email__" data-cfemail="f1929e9f85909285b1909d8595949f859897989483df929e9c">[email protected]</span></a><br>
+               Twitter: <a style="color: white; border-bottom: 1px solid white" href="https://twitter.com/altdentifier">@altdentifier</a><br>
+               <a style="color: white; border-bottom: 1px solid white" href="/tos?lang=en">Terms of Service</a>
+            </p>
+         </div>
+      </footer>
+      <script data-cfasync="false" src="js/email-decode.min.js"></script>
+      <style id="style"></style>
+      <script>
+         document.addEventListener('DOMContentLoaded', () => {
+         
+         // Get all "navbar-burger" elements
+         const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+         
+         // Check if there are any navbar burgers
+         if ($navbarBurgers.length > 0) {
+         
+         // Add a click event on each of them
+         $navbarBurgers.forEach( el => {
+           el.addEventListener('click', () => {
+         
+             // Get the target from the "data-target" attribute
+             const target = el.dataset.target;
+             const $target = document.getElementById(target);
+         
+             // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+             el.classList.toggle('is-active');
+             $target.classList.toggle('is-active');
+         
+           });
+         });
+         }
+         
+         });
+      </script>
+      <script>
+         let theme = localStorage.getItem('theme');
+         const style = document.getElementById('style');
+         const themeSwitch = document.getElementById('themeSwitch');
+             if (!theme) {
+                 localStorage.setItem('theme', 'light');
+                 style.innerHTML = '';
+                 theme = 'light';
+                 themeSwitch.innerText = 'Dark Theme';
+             }
+             if (theme === 'light') {
+                 style.innerHTML = '';
+                 theme = 'light';
+                 themeSwitch.innerText = 'Dark Theme';
+             }
+             if (theme === 'dark') {
+                 style.innerHTML = 'body, html, nav, footer {\n' +
+                         '    background-color: #1c1c1c !important;}\n' +
+                         'section { background-color: transparent;}';
+                 theme = 'dark';
+                 themeSwitch.innerText = 'Light Theme';
+             }
+         
+             function changeTheme() {
+                 console.log(theme);
+                 if (!theme) {
+                 localStorage.setItem('theme', 'dark');
+                 style.innerHTML = 'body, html, nav, section, footer {\n' +
+                     '    background-color: #1c1c1c !important;\n' +
+                     '}';
+                 theme = 'dark';
+                 themeSwitch.innerText = 'Light Theme';
+                 }
+                 else if (theme === 'light') {
+                     localStorage.setItem('theme', 'dark');
+                     style.innerHTML = 'body, html, nav, footer {\n' +
+                         '    background-color: #1c1c1c !important;}\n' +
+                         'section { background-color: transparent;}';
+                     theme = 'dark';
+                     themeSwitch.innerText = 'Light Theme';
+                 }
+                 else if (theme === 'dark') {
+                     localStorage.setItem('theme', 'light');
+                     style.innerHTML = '';
+                     theme = 'light';
+                     themeSwitch.innerText = 'Dark Theme';
+                 }
+             }
+      </script>
+      <script>
+         const servercount = document.getElementById('servercount');
+         const usercount = document.getElementById('usercount');
+         usercount.innerText = Number(usercount.innerText).toLocaleString();
+         servercount.innerText = Number(servercount.innerText).toLocaleString();
+      </script>
+   </body>
+</html>

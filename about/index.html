@@ -1,0 +1,273 @@
+<html lang="en" style="background-color: #7289DA;" class=" FB_FW_ext eidReader">
+   <head>
+      <link rel="icon" href="images/icon.png">
+      <meta charset="UTF-8">
+      <meta property="og:title" content="AltDentifier FAQ">
+      <meta property="og:image" content="https://altdentifier.com/static/cop.png">
+      <meta property="og:description" content="Your frequently asked questions about AltDentifier answered!">
+      <meta property="og:site_name" content="AltDentifier">
+      <meta name="theme-color" content="#7289DA">
+      <link rel="stylesheet" href="https://altdentifier.com/static/style2.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+      <title>AltDentifier FAQ</title>
+
+      <style>
+         @font-face {
+  font-family: "UniSansHeavyCAPS";
+  src: url("fonts/UniSansHeavyCAPS.ttf") format("truetype");
+}
+         .title, .text {
+    font-family: "UniSansHeavyCAPS", sans-serif; /* Apply the custom font */
+  }
+      </style>
+   </head>
+   <body>
+      <script>
+         const XHR = new XMLHttpRequest();
+         XHR.onreadystatechange = function () {
+             if (this.readyState === 4 && this.status === 200) {
+                 const result = JSON.parse(this.responseText);
+                 if (result.good_news === null || result.good_news === undefined || result.good_news === '' || (localStorage.getItem('good_news') !== null &&Number(localStorage.getItem('good_news')) === result.good_news_counter)) {
+                     document.getElementById('good_news').style.display = 'none';
+                 }
+                 else {
+                     document.getElementById('good_news').style.display = null;
+                     document.getElementById('good_news_text').innerHTML = result.good_news;
+                     document.getElementById('delete_good_news').onclick = function () {
+                         document.getElementById('good_news').style.display = 'none';
+                         localStorage.setItem('good_news', result.good_news_counter);
+                     }
+                 }
+                 if (result.bad_news === null || result.bad_news === undefined || result.bad_news === '') {
+                     document.getElementById('bad_news').style.display = 'none';
+                 }
+                 else {
+                     document.getElementById('bad_news').style.display = null;
+                     document.getElementById('bad_news_text').innerHTML = result.bad_news;
+                 }
+             }
+         
+         };
+         
+         XHR.open('GET', "https://altdentifier.com/api/news", true);
+         XHR.send();
+      </script>
+      <nav class="navbar" style="background-color: #7289DA" role="navigation" aria-label="main navigation">
+         <div class="navbar-brand">
+            <a class="navbar-item" href="../index.html">
+            <img src="images/cop.png">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            </a>
+         </div>
+         <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/faq">FAQ</a>
+                <a class="navbar-item" href="/commands">Commands</a>
+                <a class="navbar-item" href="/status">Status</a>
+                <a class="navbar-item" href="/about">About</a>
+             </div>
+            <div class="navbar-end">
+               <a style="font-weight: bold" class="navbar-item button is-info" href="https://discord.com/invite/k3Ggcwg" target="_blank">Get Support</a>
+               <a id="themeSwitch" onclick="changeTheme();" class="navbar-item">Dark Theme</a>
+               <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                  🇬🇧 English
+                  </a>
+                  <div class="navbar-dropdown">
+                     <a class="navbar-item">🇩🇪 Deutsch</a>
+                     <a class="navbar-item">🇪🇸 Español</a>
+                     <a class="navbar-item">🇳🇱 Nederlands</a>
+                     <a class="navbar-item">🇵🇱 Polski</a>
+                     <a class="navbar-item">🇧🇷 Português (BR)</a>
+                     <a class="navbar-item">🇮🇹 Italiano</a>
+                     <a class="navbar-item">🇹🇷 Türkçe</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <div class="container">
+         <h1 style="text-align: center; margin-top: 1rem;" class="title">About AltDentifier</h1>
+         <hr>
+         <p class="text">AltDentifier is a unique verification bot to help prevent your server from alts and raids. We feature a one-of-a-kind social media and gaming platform verification system and automatic detection for alt accounts!</p>
+      </div>
+      <br>
+      <h1 style="text-align: center" class="title">Staff</h1>
+      <h1 style="font-size: 20px; text-align: center;" class="title">Developer</h1>
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly;">
+    
+         <div>
+             <img class="avatar" src="https://cdn.discordapp.com/avatars/282277941092810752/eee9765168d66170b95a96af6c345877.webp?size=1024" style="height: 128px; width: 128px;">
+             <p style=" font-weight: bold; text-align: center; margin-top: 1rem;" class="text">nathanl#0</p>
+         </div>
+         
+     </div>
+     <br>
+     <h1 style="font-size: 20px; text-align: center;" class="title">Mods</h1>
+     <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly;">
+    
+      <div>
+          <img class="avatar" src="https://cdn.discordapp.com/avatars/282277941092810752/eee9765168d66170b95a96af6c345877.webp?size=1024" style="height: 128px; width: 128px;">
+          <p style=" font-weight: bold; text-align: center; margin-top: 1rem;" class="text">nathanl#0</p>
+      </div>
+      
+      <div>
+          <img class="avatar" src="https://cdn.discordapp.com/avatars/409740404636909578/6dbd34058647b9e1478b592db250e5fe.webp?size=1024" style="height: 128px; width: 128px;">
+          <p style=" font-weight: bold; text-align: center; margin-top: 1rem;" class="text">totallytavi#0</p>
+      </div>
+      
+      <div>
+          <img class="avatar" src="https://cdn.discordapp.com/avatars/534282291027902464/a_901ab58aa435b85b6fad55e178693db9.gif?size=1024" style="height: 128px; width: 128px;">
+          <p style=" font-weight: bold; text-align: center; margin-top: 1rem;" class="text">papa.no#0</p>
+      </div>
+      
+    </div>
+    <br>
+    <h1 style="font-size: 20px; text-align: center;" class="title">Translators</h1>
+    <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly;">
+    
+      <div>
+          <img class="avatar" src="https://cdn.discordapp.com/avatars/665678531375661098/a_8cf827873df6b5fc01c9a987183cf7d2.gif?size=1024" style="height: 128px; width: 128px;">
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">luciferthedevil_666#0</p>
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">Italian</p>
+      </div>
+      
+      <div>
+          <img class="avatar" src="https://cdn.discordapp.com/avatars/187588641256636416/a_6e3ca5ff315304cf8c00775f7a5e4022.gif?size=1024" style="height: 128px; width: 128px;">
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">Emivg#0001</p>
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">Spanish</p>
+      </div>
+      
+      <div>
+          <img class="avatar" src="https://cdn.discordapp.com/avatars/94762492923748352/ac68234d445cfa302cd46e02f7805ee4.webp?size=1024" style="height: 128px; width: 128px;">
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">sleepycat#0</p>
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">French</p>
+      </div>
+      
+      <div>
+          <img class="avatar" src="https://cdn.discordapp.com/avatars/397818073882558468/e50000524ff5044d5136fd0d878eaca7.webp?size=1024" style="height: 128px; width: 128px;">
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">pineapplesnackz#0</p>
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">Swedish</p>
+      </div>
+      
+      <div>
+          <img class="avatar" src="https://cdn.discordapp.com/avatars/66166172835385344/a_38e2cd8b6c4f77209b2006d35626c23b.gif?size=1024" style="height: 128px; width: 128px;">
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">auxim#0</p>
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">Dutch</p>
+      </div>
+      
+      <div>
+          <img class="avatar" src="https://cdn.discordapp.com/avatars/222063797790048256/fcef84846eab433b7255368d3b3a6f2d.webp?size=1024" style="height: 128px; width: 128px;">
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">suprovsky#0</p>
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">Polish</p>
+      </div>
+      
+      <div>
+          <img class="avatar" src="https://cdn.discordapp.com/avatars/162969778699501569/a_5a915f09f9a2bdf1c05e65d75ffd7101.gif?size=1024" style="height: 128px; width: 128px;">
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">eggsydev#0</p>
+          <p style="font-weight: bold; text-align: center; margin-top: 1rem;" class="text">Turkish</p>
+      </div>
+      
+  </div>
+  <br>
+  <br>
+  <h1 style="text-align: center" class="title">Widgets</h1>
+  <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly; align-items: center;">
+   <p style="display: inline-block;">
+      <a href="https://discordbots.org/bot/372022813839851520">
+          <img src="https://discordbots.org/api/widget/372022813839851520.svg">
+      </a>
+   </p>
+  <p style="display: inline-block;">
+      <a href="https://botsfordiscord.com/bot/372022813839851520">
+          <img height="150" src="https://botsfordiscord.com/api/bot/372022813839851520/widget?theme=dark">
+      </a>
+  </p>
+  <a href="https://bots.ondiscord.xyz/bots/372022813839851520">
+      <img src="https://bots.ondiscord.xyz/bots/372022813839851520/embed?theme=dark&amp;showGuilds=true" alt="AltDentifier">
+  </a>
+</div>
+      <style id="style"></style>
+      <script>
+         document.addEventListener('DOMContentLoaded', () => {
+         
+         // Get all "navbar-burger" elements
+         const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+         
+         // Check if there are any navbar burgers
+         if ($navbarBurgers.length > 0) {
+         
+         // Add a click event on each of them
+         $navbarBurgers.forEach( el => {
+           el.addEventListener('click', () => {
+         
+             // Get the target from the "data-target" attribute
+             const target = el.dataset.target;
+             const $target = document.getElementById(target);
+         
+             // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+             el.classList.toggle('is-active');
+             $target.classList.toggle('is-active');
+         
+           });
+         });
+         }
+         
+         });
+      </script>
+      <script>
+         let theme = localStorage.getItem('theme');
+         const style = document.getElementById('style');
+         const themeSwitch = document.getElementById('themeSwitch');
+             if (!theme) {
+                 localStorage.setItem('theme', 'light');
+                 style.innerHTML = '';
+                 theme = 'light';
+                 themeSwitch.innerText = 'Dark Theme';
+             }
+             if (theme === 'light') {
+                 style.innerHTML = '';
+                 theme = 'light';
+                 themeSwitch.innerText = 'Dark Theme';
+             }
+             if (theme === 'dark') {
+                 style.innerHTML = 'body, html, nav, footer {\n' +
+                         '    background-color: #1c1c1c !important;}\n' +
+                         'section { background-color: transparent;}';
+                 theme = 'dark';
+                 themeSwitch.innerText = 'Light Theme';
+             }
+         
+             function changeTheme() {
+                 console.log(theme);
+                 if (!theme) {
+                 localStorage.setItem('theme', 'dark');
+                 style.innerHTML = 'body, html, nav, section, footer {\n' +
+                     '    background-color: #1c1c1c !important;\n' +
+                     '}';
+                 theme = 'dark';
+                 themeSwitch.innerText = 'Light Theme';
+                 }
+                 else if (theme === 'light') {
+                     localStorage.setItem('theme', 'dark');
+                     style.innerHTML = 'body, html, nav, footer {\n' +
+                         '    background-color: #1c1c1c !important;}\n' +
+                         'section { background-color: transparent;}';
+                     theme = 'dark';
+                     themeSwitch.innerText = 'Light Theme';
+                 }
+                 else if (theme === 'dark') {
+                     localStorage.setItem('theme', 'light');
+                     style.innerHTML = '';
+                     theme = 'light';
+                     themeSwitch.innerText = 'Dark Theme';
+                 }
+             }
+      </script>
+   </body>
+</html>

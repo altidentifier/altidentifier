@@ -1,0 +1,199 @@
+<html lang="en" style="background-color: #7289DA;" class=" FB_FW_ext eidReader">
+   <head>
+      <link rel="icon" href="images/icon.png">
+      <meta charset="UTF-8">
+      <meta property="og:title" content="AltDentifier FAQ">
+      <meta property="og:image" content="https://altdentifier.com/static/cop.png">
+      <meta property="og:description" content="Your frequently asked questions about AltDentifier answered!">
+      <meta property="og:site_name" content="AltDentifier">
+      <meta name="theme-color" content="#7289DA">
+      <link rel="stylesheet" href="https://altdentifier.com/static/style2.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+      <title>AltDentifier FAQ</title>
+   </head>
+   <body>
+      <script>
+         const XHR = new XMLHttpRequest();
+         XHR.onreadystatechange = function () {
+             if (this.readyState === 4 && this.status === 200) {
+                 const result = JSON.parse(this.responseText);
+                 if (result.good_news === null || result.good_news === undefined || result.good_news === '' || (localStorage.getItem('good_news') !== null &&Number(localStorage.getItem('good_news')) === result.good_news_counter)) {
+                     document.getElementById('good_news').style.display = 'none';
+                 }
+                 else {
+                     document.getElementById('good_news').style.display = null;
+                     document.getElementById('good_news_text').innerHTML = result.good_news;
+                     document.getElementById('delete_good_news').onclick = function () {
+                         document.getElementById('good_news').style.display = 'none';
+                         localStorage.setItem('good_news', result.good_news_counter);
+                     }
+                 }
+                 if (result.bad_news === null || result.bad_news === undefined || result.bad_news === '') {
+                     document.getElementById('bad_news').style.display = 'none';
+                 }
+                 else {
+                     document.getElementById('bad_news').style.display = null;
+                     document.getElementById('bad_news_text').innerHTML = result.bad_news;
+                 }
+             }
+         
+         };
+         
+         XHR.open('GET', "https://altdentifier.com/api/news", true);
+         XHR.send();
+      </script>
+      <nav class="navbar" style="background-color: #7289DA" role="navigation" aria-label="main navigation">
+         <div class="navbar-brand">
+            <a class="navbar-item" href="../index.html">
+            <img src="images/cop.png">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            </a>
+         </div>
+         <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/faq">FAQ</a>
+                <a class="navbar-item" href="/commands">Commands</a>
+                <a class="navbar-item" href="/status">Status</a>
+                <a class="navbar-item" href="/about">About</a>
+             </div>
+            <div class="navbar-end">
+               <a style="font-weight: bold" class="navbar-item button is-info" href="https://discord.com/invite/k3Ggcwg" target="_blank">Get Support</a>
+               <a id="themeSwitch" onclick="changeTheme();" class="navbar-item">Dark Theme</a>
+               <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                  🇬🇧 English
+                  </a>
+                  <div class="navbar-dropdown">
+                     <a class="navbar-item">🇩🇪 Deutsch</a>
+                     <a class="navbar-item">🇪🇸 Español</a>
+                     <a class="navbar-item">🇳🇱 Nederlands</a>
+                     <a class="navbar-item">🇵🇱 Polski</a>
+                     <a class="navbar-item">🇧🇷 Português (BR)</a>
+                     <a class="navbar-item">🇮🇹 Italiano</a>
+                     <a class="navbar-item">🇹🇷 Türkçe</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <h1 style="text-align: center; margin-top: 1rem;" class="title">AltDentifier FAQ</h1>
+      <section class="section">
+         <div class="container">
+            <div style="background-color: rgba(0, 0, 0, 0.2); border-radius: 6px; padding: 1rem; margin-bottom: 1rem;">
+               <h1 style="font-size: 24px;" class="title">What is AltDentifier?</h1>
+               <p class="text">AltDentifier is a bot made to detect and verify people who might be alt accounts and spam accounts. People who are marked suspicious can automatically be asked to verify themselves with AltDentifier.</p>
+            </div>
+            <div style="background-color: rgba(0, 0, 0, 0.2); border-radius: 6px; padding: 1rem; margin-bottom: 1rem;">
+               <h1 style="font-size: 24px;" class="title">How does AltDentifier work?</h1>
+               <p class="text">AltDentifier works by verifying users with their Discord Connections. Users can connect third party services such as Steam and Twitter to their account. AltDentifier then uses the data from these accounts to verify the legitimacy of the account.</p>
+            </div>
+            <div style="background-color: rgba(0, 0, 0, 0.2); border-radius: 6px; padding: 1rem; margin-bottom: 1rem;">
+               <h1 style="font-size: 24px;" class="title">Does AltDentifier update automatically?</h1>
+               <p class="text">Yes. AltDentifier is fully managed by the developer, and thus you will never have to install any updates, these will just go out to your server automatically.</p>
+            </div>
+            <div style="background-color: rgba(0, 0, 0, 0.2); border-radius: 6px; padding: 1rem; margin-bottom: 1rem;">
+               <h1 style="font-size: 24px;" class="title">Why do some messages not respond?</h1>
+               <p class="text">AltDentifier has a timeout on listening to messages. This is about 1 minute. After this, it may seem like the bot stops working, but it has actually just stopped waiting for a response.</p>
+            </div>
+            <div style="background-color: rgba(0, 0, 0, 0.2); border-radius: 6px; padding: 1rem; margin-bottom: 1rem;">
+               <h1 style="font-size: 24px;" class="title">What is the Default Role</h1>
+               <p class="text">A Default Role in this context means a role that is given to all members in your server when they join. This role gets taken away when a user needs to verify. As of recent, you can also reverse the working, so that it acts like a verification role instead!</p>
+            </div>
+            <div style="background-color: rgba(0, 0, 0, 0.2); border-radius: 6px; padding: 1rem; margin-bottom: 1rem;">
+               <h1 style="font-size: 24px;" class="title">What are Mod and Admin Roles?</h1>
+               <p class="text">These are roles you can add to the bot that give access to permissions within the bot. Fundamentally they are near identical, with the only difference being that Admins can change the bot's settings, while Mods cannot. Keep in mind that Manage Server is still required for the web dashboard!</p>
+            </div>
+            <div style="background-color: rgba(0, 0, 0, 0.2); border-radius: 6px; padding: 1rem; margin-bottom: 1rem;">
+               <h1 style="font-size: 24px;" class="title">What are Bot and Warning channels and why are they required?</h1>
+               <p class="text">The bot channel is the channel where AltDentifier will inform staff of the status of people in verification. The bot needs a place to output, thus it is required. The warning channel is used to warn people when they have their DM's turned off, or optionally when they need to verify. This is required as well, as users with DM's off should still be able to verify.</p>
+            </div>
+            <div style="background-color: rgba(0, 0, 0, 0.2); border-radius: 6px; padding: 1rem; margin-bottom: 1rem;">
+               <h1 style="font-size: 24px;" class="title">Why are the permissions the bot asks for required?</h1>
+               <p class="text">AltDentifier requires Manage Roles, to be able to apply the Default Role, or remove it. It also lets us give the timeout role, and provide our autorole functionality. Kick and Ban permissions are required because we need to be able to support those actions for members who do not respond.</p>
+            </div>
+         </div>
+      </section>
+      <style id="style"></style>
+      <script>
+         document.addEventListener('DOMContentLoaded', () => {
+         
+         // Get all "navbar-burger" elements
+         const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+         
+         // Check if there are any navbar burgers
+         if ($navbarBurgers.length > 0) {
+         
+         // Add a click event on each of them
+         $navbarBurgers.forEach( el => {
+           el.addEventListener('click', () => {
+         
+             // Get the target from the "data-target" attribute
+             const target = el.dataset.target;
+             const $target = document.getElementById(target);
+         
+             // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+             el.classList.toggle('is-active');
+             $target.classList.toggle('is-active');
+         
+           });
+         });
+         }
+         
+         });
+      </script>
+      <script>
+         let theme = localStorage.getItem('theme');
+         const style = document.getElementById('style');
+         const themeSwitch = document.getElementById('themeSwitch');
+             if (!theme) {
+                 localStorage.setItem('theme', 'light');
+                 style.innerHTML = '';
+                 theme = 'light';
+                 themeSwitch.innerText = 'Dark Theme';
+             }
+             if (theme === 'light') {
+                 style.innerHTML = '';
+                 theme = 'light';
+                 themeSwitch.innerText = 'Dark Theme';
+             }
+             if (theme === 'dark') {
+                 style.innerHTML = 'body, html, nav, footer {\n' +
+                         '    background-color: #1c1c1c !important;}\n' +
+                         'section { background-color: transparent;}';
+                 theme = 'dark';
+                 themeSwitch.innerText = 'Light Theme';
+             }
+         
+             function changeTheme() {
+                 console.log(theme);
+                 if (!theme) {
+                 localStorage.setItem('theme', 'dark');
+                 style.innerHTML = 'body, html, nav, section, footer {\n' +
+                     '    background-color: #1c1c1c !important;\n' +
+                     '}';
+                 theme = 'dark';
+                 themeSwitch.innerText = 'Light Theme';
+                 }
+                 else if (theme === 'light') {
+                     localStorage.setItem('theme', 'dark');
+                     style.innerHTML = 'body, html, nav, footer {\n' +
+                         '    background-color: #1c1c1c !important;}\n' +
+                         'section { background-color: transparent;}';
+                     theme = 'dark';
+                     themeSwitch.innerText = 'Light Theme';
+                 }
+                 else if (theme === 'dark') {
+                     localStorage.setItem('theme', 'light');
+                     style.innerHTML = '';
+                     theme = 'light';
+                     themeSwitch.innerText = 'Dark Theme';
+                 }
+             }
+      </script>
+   </body>
+</html>
